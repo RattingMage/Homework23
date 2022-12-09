@@ -15,15 +15,16 @@ def map_query(param: str, data: list[str]) -> list[str]:
 
 
 def unique_query(data: list[str], *args, **kwargs) -> list[str]:
-    result = []
-    seen = set()
-    for row in data:
-        if row in seen:
-            continue
-        else:
-            result.append(row)
-            seen.add(row)
-    return result
+    # result: list = []
+    # seen: set = set()
+    # for row in data:
+    #     if row in seen:
+    #         continue
+    #     else:
+    #         result.append(row)
+    #         seen.add(row)
+    # return result
+    return list(set(data))
 
 
 def sort_query(param: str, data: list[str]) -> list[str]:
@@ -37,7 +38,7 @@ def limit_query(param: str, data: list[str]) -> list[str]:
 
 
 CMD_TO_FUNCTION = {
-    "fileter": filter_query,
+    "filter": filter_query,
     "map": map_query,
     "unique": unique_query,
     "sort": sort_query,
@@ -45,7 +46,7 @@ CMD_TO_FUNCTION = {
 }
 
 
-def build_query(cmd, param, data=None):
+def build_query(cmd: str, param: str, data: list[str] = None) -> list[str]:
     if not data:
         with open(FILE_NAME) as file:
             data = list(map(lambda row: row.strip(), file))
