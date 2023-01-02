@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
-      uses: action/checkout@v2
+      uses: actions/checkout@v2
     - name: build
       run: docker build -t andrykar/skypro:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
     - name: login
