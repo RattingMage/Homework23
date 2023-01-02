@@ -7,8 +7,8 @@ jobs:
     - name: checkout
       uses: action/checkout@v2
     - name: build
-      run: docker build -t andrykar/skypro:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
+      run: docker build -t RattingMage/Homework23:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
     - name: login
       run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: push
-      run: docker push andrykar/skypro:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+      run: docker push RattingMage/Homework23:$GITHUB_REF_NAME-$GITHUB_RUN_ID
