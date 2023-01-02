@@ -44,3 +44,4 @@ jobs:
             cd test_app
             sudo docker-compose up -d
             ${{ secrets.SERVER_PASSWORD }}
+            
